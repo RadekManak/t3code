@@ -78,7 +78,10 @@ export function ThreadFileNavigatorPane(props: {
   );
 
   return (
-    <View className="flex-1 ios:bg-sheet android:bg-header">
+    // Material sheet drags follow the first nested-scrolling native view, and the Android
+    // header's Compose bar is one, so Android renders the tree first and reverses the column.
+    <View className="flex-1 ios:bg-sheet android:bg-header android:flex-col-reverse">
+      <ScreenContent insetHorizontal>{fileTree}</ScreenContent>
       <AppBar
         title="Files"
         subtitle={props.projectName}
@@ -89,7 +92,6 @@ export function ThreadFileNavigatorPane(props: {
         }}
         refresh={{ accessibilityLabel: "Refresh files", onPress: entriesQuery.refresh }}
       />
-      <ScreenContent insetHorizontal>{fileTree}</ScreenContent>
     </View>
   );
 }
