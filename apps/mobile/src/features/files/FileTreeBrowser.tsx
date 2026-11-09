@@ -214,8 +214,6 @@ export function FileTreeBrowser(props: {
   return (
     <LegendList
       renderScrollComponent={NativeScrollView}
-      // RefreshControl's Android wrapper always reports it cannot scroll up, so nested
-      // scrolls from the list would drag a surrounding sheet down instead of scrolling.
       nestedScrollEnabled={false}
       contentInsetStartAdjustment={headerInset}
       alwaysBounceVertical

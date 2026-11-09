@@ -53,9 +53,6 @@ export function InspectorPanes(props: {
                   position: "absolute",
                   inset: 0,
                   opacity: visible ? 1 : 0,
-                  // Fabric orders native children by zIndex, and the sheet drags with the first
-                  // nested-scrolling view it finds, so the visible pane goes first. Hidden panes
-                  // drawn above it are transparent and pass touches through.
                   zIndex: visible ? 0 : 1,
                 }}
               >
